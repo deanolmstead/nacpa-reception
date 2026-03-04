@@ -1,0 +1,1130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NACPA Reception RSVP – 5 Variations</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Josefin+Sans:wght@100;300;400&family=DM+Serif+Display:ital@0;1&family=Bebas+Neue&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Space+Mono:wght@400;700&family=Cinzel:wght@400;600;700&family=Raleway:wght@100;200;300;400&family=Crimson+Pro:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+
+<style>
+  /* ===== SWITCHER NAV ===== */
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: sans-serif; background: #111; }
+
+  .switcher {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 9999;
+    background: #0a0a0a;
+    border-bottom: 1px solid #222;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    overflow-x: auto;
+  }
+  .switcher span {
+    color: #666;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    white-space: nowrap;
+    margin-right: 4px;
+  }
+  .switcher button {
+    background: transparent;
+    border: 1px solid #333;
+    color: #888;
+    padding: 6px 16px;
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all 0.2s;
+    border-radius: 2px;
+  }
+  .switcher button:hover { border-color: #666; color: #ccc; }
+  .switcher button.active { border-color: #345c64; color: #7bbdc8; background: rgba(52,92,100,0.15); }
+
+  .variation { display: none; min-height: 100vh; }
+  .variation.active { display: block; }
+
+  /* ===== GALLERY STRIP ===== */
+  .gallery-strip {
+    display: flex;
+    gap: 0;
+    width: 100%;
+    overflow: hidden;
+    height: 220px;
+  }
+  .gallery-strip img {
+    flex: 1;
+    object-fit: cover;
+    width: 25%;
+    filter: brightness(0.75) saturate(0.85);
+    transition: flex 0.5s ease, filter 0.3s;
+  }
+  .gallery-strip img:hover {
+    flex: 2.5;
+    filter: brightness(0.9) saturate(1.1);
+  }
+  .gallery-strip-sm {
+    display: flex;
+    gap: 3px;
+    height: 140px;
+  }
+  .gallery-strip-sm img {
+    flex: 1;
+    object-fit: cover;
+    filter: brightness(0.8) saturate(0.7);
+    transition: flex 0.4s, filter 0.3s;
+    border-radius: 2px;
+  }
+  .gallery-strip-sm img:hover { flex: 2.5; filter: brightness(0.95) saturate(1); }
+
+  /* ===========================
+     VARIATION 1 – LUXURY EDITORIAL
+     Split hero: dark left / warm image right
+     Playfair + Josefin Sans
+  =========================== */
+  #v1 {
+    background: #1a1f1f;
+    display: none;
+    min-height: 100vh;
+  }
+  #v1.active { display: flex; flex-direction: column; }
+  #v1 .hero {
+    display: flex;
+    flex: 1;
+    min-height: calc(100vh - 60px);
+  }
+  #v1 .left {
+    flex: 1;
+    background: #0e1817;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 70px 60px;
+    position: relative;
+    overflow: hidden;
+  }
+  #v1 .left::before {
+    content: '';
+    position: absolute;
+    top: -80px; left: -80px;
+    width: 300px; height: 300px;
+    background: radial-gradient(circle, rgba(52,92,100,0.3) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  #v1 .left::after {
+    content: '';
+    position: absolute;
+    bottom: 40px; right: 40px;
+    width: 1px; height: 120px;
+    background: linear-gradient(to bottom, transparent, #345c64, transparent);
+  }
+  #v1 .overline {
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 100;
+    font-size: 10px;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: #7bbdc8;
+    margin-bottom: 28px;
+  }
+  #v1 h1 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 400;
+    font-size: 48px;
+    color: #e8ddd0;
+    line-height: 1.1;
+    margin-bottom: 12px;
+  }
+  #v1 h1 em {
+    font-style: italic;
+    color: #a8c5ca;
+  }
+  #v1 .date-line {
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 300;
+    font-size: 12px;
+    letter-spacing: 3px;
+    color: #767668;
+    margin-bottom: 48px;
+    padding-bottom: 48px;
+    border-bottom: 1px solid rgba(118,118,104,0.2);
+  }
+  #v1 .form-label {
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 100;
+    font-size: 9px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: #7bbdc8;
+    margin-bottom: 8px;
+    display: block;
+  }
+  #v1 .form-group { margin-bottom: 28px; }
+  #v1 input {
+    width: 100%;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid rgba(118,118,104,0.4);
+    padding: 10px 0;
+    font-family: 'Playfair Display', serif;
+    font-size: 16px;
+    color: #e8ddd0;
+    outline: none;
+    transition: border-color 0.3s;
+  }
+  #v1 input::placeholder { color: #3a3a35; }
+  #v1 input:focus { border-bottom-color: #7bbdc8; }
+  #v1 .guest-row { display: flex; gap: 20px; }
+  #v1 .guest-row .form-group { flex: 1; }
+  #v1 .submit-btn {
+    margin-top: 40px;
+    background: transparent;
+    border: 1px solid #345c64;
+    color: #7bbdc8;
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 300;
+    font-size: 11px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    padding: 16px 40px;
+    cursor: pointer;
+    transition: all 0.3s;
+    position: relative;
+    overflow: hidden;
+  }
+  #v1 .submit-btn::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: #345c64;
+    transform: translateX(-100%);
+    transition: transform 0.4s ease;
+    z-index: 0;
+  }
+  #v1 .submit-btn:hover::before { transform: translateX(0); }
+  #v1 .submit-btn:hover { color: #e8ddd0; }
+  #v1 .submit-btn span { position: relative; z-index: 1; }
+  #v1 .right {
+    flex: 1;
+    position: relative;
+    overflow: hidden;
+  }
+  #v1 .right img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: saturate(0.6) brightness(0.7);
+  }
+  #v1 .right .overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(14,24,23,0.5) 0%, transparent 60%);
+  }
+  #v1 .right .venue-tag {
+    position: absolute;
+    bottom: 40px;
+    left: 40px;
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 100;
+    font-size: 10px;
+    letter-spacing: 4px;
+    color: rgba(232,221,208,0.6);
+    text-transform: uppercase;
+  }
+  #v1 .gallery-bar {
+    height: 200px;
+  }
+
+
+  /* ===========================
+     VARIATION 2 – ART DECO GEOMETRIC
+     Gold and teal with bold geometry
+     Cinzel + Crimson Pro
+  =========================== */
+  #v2 {
+    background: #f5f0e8;
+    display: none;
+    min-height: 100vh;
+    position: relative;
+  }
+  #v2.active { display: block; }
+  #v2 .deco-top {
+    background: #345c64;
+    height: 8px;
+    background: linear-gradient(90deg, #345c64, #767668, #345c64);
+  }
+  #v2 .inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 40px 60px;
+  }
+  #v2 .deco-header {
+    text-align: center;
+    padding: 40px 0 30px;
+    position: relative;
+  }
+  #v2 .deco-header::before, #v2 .deco-header::after {
+    content: '◆ ─────────────── ◆';
+    display: block;
+    color: #767668;
+    font-size: 11px;
+    letter-spacing: 4px;
+    margin: 12px 0;
+  }
+  #v2 .tag {
+    font-family: 'Cinzel', serif;
+    font-size: 9px;
+    letter-spacing: 6px;
+    color: #767668;
+    text-transform: uppercase;
+  }
+  #v2 h1 {
+    font-family: 'Cinzel', serif;
+    font-weight: 600;
+    font-size: 42px;
+    color: #345c64;
+    letter-spacing: 3px;
+    line-height: 1.15;
+  }
+  #v2 .date {
+    font-family: 'Crimson Pro', serif;
+    font-style: italic;
+    font-size: 18px;
+    color: #767668;
+    margin: 8px 0;
+  }
+  #v2 .split { display: flex; gap: 50px; align-items: flex-start; margin-top: 40px; }
+  #v2 .form-side {
+    flex: 1;
+    background: #fff;
+    border: 1px solid #d4c9b5;
+    padding: 40px;
+    position: relative;
+  }
+  #v2 .form-side::before {
+    content: '';
+    position: absolute;
+    top: 6px; left: 6px; right: 6px; bottom: 6px;
+    border: 1px solid rgba(52,92,100,0.15);
+    pointer-events: none;
+  }
+  #v2 .form-side h2 {
+    font-family: 'Cinzel', serif;
+    font-size: 13px;
+    letter-spacing: 3px;
+    color: #345c64;
+    margin-bottom: 28px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid #d4c9b5;
+    text-align: center;
+  }
+  #v2 .fl { font-family: 'Cinzel', serif; font-size: 8px; letter-spacing: 3px; color: #767668; display: block; margin-bottom: 6px; }
+  #v2 input {
+    width: 100%;
+    border: 1px solid #d4c9b5;
+    background: #faf8f4;
+    padding: 11px 14px;
+    font-family: 'Crimson Pro', serif;
+    font-size: 16px;
+    color: #2a2a20;
+    outline: none;
+    margin-bottom: 20px;
+    transition: border-color 0.2s;
+  }
+  #v2 input:focus { border-color: #345c64; }
+  #v2 .guest-section { margin-top: 8px; }
+  #v2 .guest-section .gs-title {
+    font-family: 'Cinzel', serif;
+    font-size: 8px;
+    letter-spacing: 3px;
+    color: #767668;
+    display: block;
+    margin-bottom: 14px;
+    padding-top: 12px;
+    border-top: 1px solid #e8e2d8;
+  }
+  #v2 .rsvp-btn {
+    width: 100%;
+    margin-top: 8px;
+    background: #345c64;
+    border: none;
+    color: #f5f0e8;
+    font-family: 'Cinzel', serif;
+    font-size: 10px;
+    letter-spacing: 4px;
+    padding: 16px;
+    cursor: pointer;
+    transition: background 0.3s;
+    position: relative;
+  }
+  #v2 .rsvp-btn:hover { background: #2a4a52; }
+  #v2 .img-side {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+  #v2 .img-side .main-img {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+    filter: saturate(0.75);
+  }
+  #v2 .img-side .gallery-mini {
+    display: flex;
+    gap: 3px;
+    margin-top: 3px;
+  }
+  #v2 .img-side .gallery-mini img {
+    flex: 1;
+    height: 90px;
+    object-fit: cover;
+    filter: saturate(0.6) brightness(0.85);
+    transition: filter 0.3s, flex 0.4s;
+  }
+  #v2 .img-side .gallery-mini img:hover { filter: saturate(0.9) brightness(1); flex: 2; }
+  #v2 .deco-corner {
+    width: 40px; height: 40px;
+    border-left: 2px solid #345c64;
+    border-top: 2px solid #345c64;
+    position: absolute;
+  }
+  #v2 .deco-corner.tl { top: 20px; left: 20px; }
+  #v2 .deco-corner.br { bottom: 20px; right: 20px; transform: rotate(180deg); }
+
+
+  /* ===========================
+     VARIATION 3 – BRUTALIST RAW
+     Stark monochrome, heavy type
+     Bebas Neue + Space Mono
+  =========================== */
+  #v3 {
+    background: #f2efe8;
+    display: none;
+    min-height: 100vh;
+  }
+  #v3.active { display: block; }
+  #v3 .top-bar {
+    background: #345c64;
+    padding: 12px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  #v3 .top-bar span {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    color: rgba(242,239,232,0.7);
+    letter-spacing: 2px;
+  }
+  #v3 .body-wrap { display: flex; min-height: calc(100vh - 44px); }
+  #v3 .form-col {
+    flex: 1;
+    padding: 60px 50px;
+    border-right: 3px solid #1a1a18;
+  }
+  #v3 .nacpa-stamp {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 11px;
+    letter-spacing: 8px;
+    color: #767668;
+    margin-bottom: 0;
+  }
+  #v3 h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 84px;
+    color: #1a1a18;
+    line-height: 0.88;
+    letter-spacing: -2px;
+    margin: 8px 0 0;
+  }
+  #v3 .h1-accent {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 84px;
+    color: #345c64;
+    line-height: 0.88;
+    letter-spacing: -2px;
+  }
+  #v3 .info-block {
+    margin: 30px 0 40px;
+    padding: 20px 0;
+    border-top: 3px solid #1a1a18;
+    border-bottom: 1px solid #ccc;
+    display: flex;
+    gap: 40px;
+  }
+  #v3 .info-block div {
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    color: #767668;
+    line-height: 1.8;
+  }
+  #v3 .info-block strong {
+    display: block;
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: #1a1a18;
+    text-transform: uppercase;
+    margin-bottom: 2px;
+  }
+  #v3 .field-label {
+    font-family: 'Space Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #767668;
+    display: block;
+    margin-bottom: 6px;
+    margin-top: 22px;
+  }
+  #v3 input {
+    width: 100%;
+    background: transparent;
+    border: none;
+    border-bottom: 3px solid #1a1a18;
+    padding: 10px 0;
+    font-family: 'Space Mono', monospace;
+    font-size: 15px;
+    color: #1a1a18;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  #v3 input::placeholder { color: #bbb; }
+  #v3 input:focus { border-bottom-color: #345c64; }
+  #v3 .guest-pair { display: flex; gap: 20px; }
+  #v3 .guest-pair .fg { flex: 1; }
+  #v3 .send-btn {
+    margin-top: 40px;
+    background: #1a1a18;
+    border: none;
+    color: #f2efe8;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 18px;
+    letter-spacing: 5px;
+    padding: 18px 50px;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  #v3 .send-btn:hover { background: #345c64; }
+  #v3 .img-col {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  #v3 .img-col img.hero-img {
+    flex: 1;
+    width: 100%;
+    object-fit: cover;
+    min-height: 350px;
+    filter: grayscale(0.4) contrast(1.1);
+    display: block;
+  }
+  #v3 .grid-4 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3px;
+    background: #1a1a18;
+  }
+  #v3 .grid-4 img {
+    width: 100%;
+    height: 120px;
+    object-fit: cover;
+    filter: grayscale(0.5) saturate(0.7);
+    display: block;
+    transition: filter 0.3s;
+  }
+  #v3 .grid-4 img:hover { filter: grayscale(0) saturate(1); }
+
+
+  /* ===========================
+     VARIATION 4 – SOFT ORGANIC
+     Warm neutrals, serif elegance
+     DM Serif Display + Raleway
+  =========================== */
+  #v4 {
+    background: #f7f4ef;
+    display: none;
+    min-height: 100vh;
+  }
+  #v4.active { display: block; }
+  #v4 .page {
+    display: flex;
+    min-height: 100vh;
+  }
+  #v4 .left {
+    flex: 1.1;
+    padding: 70px 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: #f7f4ef;
+  }
+  #v4 .pill {
+    display: inline-block;
+    background: rgba(52,92,100,0.1);
+    color: #345c64;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 200;
+    font-size: 10px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    padding: 6px 16px;
+    border-radius: 20px;
+    margin-bottom: 28px;
+  }
+  #v4 h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 54px;
+    color: #2a2a20;
+    line-height: 1.08;
+    margin-bottom: 6px;
+  }
+  #v4 h1 em { font-style: italic; color: #345c64; }
+  #v4 .date-row {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin: 20px 0 44px;
+  }
+  #v4 .date-row .line { flex: 1; height: 1px; background: #d5cfc4; }
+  #v4 .date-row span {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 200;
+    font-size: 12px;
+    letter-spacing: 3px;
+    color: #767668;
+    white-space: nowrap;
+  }
+  #v4 .form-card {
+    background: #fff;
+    border-radius: 16px;
+    padding: 36px 32px;
+    box-shadow: 0 8px 40px rgba(52,92,100,0.08), 0 2px 8px rgba(0,0,0,0.04);
+  }
+  #v4 .fc-label {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 300;
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #767668;
+    display: block;
+    margin-bottom: 7px;
+  }
+  #v4 input {
+    width: 100%;
+    background: #f7f4ef;
+    border: 1.5px solid #e5dfd6;
+    border-radius: 8px;
+    padding: 13px 16px;
+    font-family: 'DM Serif Display', serif;
+    font-size: 17px;
+    color: #2a2a20;
+    outline: none;
+    margin-bottom: 20px;
+    transition: border-color 0.25s, box-shadow 0.25s;
+  }
+  #v4 input:focus {
+    border-color: #345c64;
+    box-shadow: 0 0 0 3px rgba(52,92,100,0.1);
+  }
+  #v4 .guest-cols { display: flex; gap: 16px; }
+  #v4 .guest-cols .gc { flex: 1; }
+  #v4 .guest-note {
+    font-family: 'Raleway', sans-serif;
+    font-size: 10px;
+    color: #a09890;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+    font-style: italic;
+  }
+  #v4 .rsvp {
+    width: 100%;
+    background: #345c64;
+    border: none;
+    border-radius: 8px;
+    color: #f7f4ef;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 200;
+    font-size: 11px;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    padding: 16px;
+    cursor: pointer;
+    margin-top: 8px;
+    transition: background 0.3s, transform 0.2s;
+  }
+  #v4 .rsvp:hover { background: #2a4a52; transform: translateY(-1px); }
+  #v4 .right {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+  #v4 .right img.main {
+    flex: 1;
+    min-height: 60%;
+    width: 100%;
+    object-fit: cover;
+    filter: saturate(0.7) brightness(0.9);
+  }
+  #v4 .thumb-row {
+    display: flex;
+    gap: 3px;
+    height: 160px;
+  }
+  #v4 .thumb-row img {
+    flex: 1;
+    object-fit: cover;
+    filter: saturate(0.6);
+    transition: flex 0.4s, filter 0.3s;
+  }
+  #v4 .thumb-row img:hover { flex: 2; filter: saturate(0.9); }
+
+
+  /* ===========================
+     VARIATION 5 – DARK MOODY MAGAZINE
+     Deep charcoal, editorial columns
+     Libre Baskerville + Raleway
+  =========================== */
+  #v5 {
+    background: #141414;
+    display: none;
+    min-height: 100vh;
+    color: #e8e0d5;
+  }
+  #v5.active { display: block; }
+  #v5 .v5-wrap { display: flex; min-height: 100vh; }
+  #v5 .v5-left {
+    flex: 1;
+    padding: 60px 55px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    background: linear-gradient(160deg, #141414 60%, #1c2e30 100%);
+  }
+  #v5 .v5-left::after {
+    content: '';
+    position: absolute;
+    right: 0; top: 10%; bottom: 10%;
+    width: 1px;
+    background: linear-gradient(to bottom, transparent, rgba(118,118,104,0.3), transparent);
+  }
+  #v5 .eyebrow {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 100;
+    font-size: 9px;
+    letter-spacing: 6px;
+    text-transform: uppercase;
+    color: #7bbdc8;
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  #v5 .eyebrow::before { content: ''; display: block; width: 30px; height: 1px; background: #345c64; }
+  #v5 h1 {
+    font-family: 'Libre Baskerville', serif;
+    font-weight: 400;
+    font-size: 50px;
+    line-height: 1.1;
+    color: #e8e0d5;
+    margin-bottom: 6px;
+  }
+  #v5 h1 em { font-style: italic; color: #7bbdc8; }
+  #v5 .meta {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 200;
+    font-size: 11px;
+    letter-spacing: 4px;
+    color: #767668;
+    margin: 20px 0 44px;
+  }
+  #v5 .v5-fieldset { border: none; }
+  #v5 .v5-label {
+    display: block;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 200;
+    font-size: 9px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: #7bbdc8;
+    margin-bottom: 7px;
+  }
+  #v5 input {
+    width: 100%;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(118,118,104,0.25);
+    border-radius: 0;
+    padding: 13px 16px;
+    font-family: 'Libre Baskerville', serif;
+    font-size: 15px;
+    color: #e8e0d5;
+    outline: none;
+    margin-bottom: 22px;
+    transition: border-color 0.3s, background 0.3s;
+  }
+  #v5 input::placeholder { color: #3a3a35; }
+  #v5 input:focus {
+    border-color: #345c64;
+    background: rgba(52,92,100,0.07);
+  }
+  #v5 .g-pair { display: flex; gap: 16px; }
+  #v5 .g-pair .gf { flex: 1; }
+  #v5 .g-note {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 200;
+    font-size: 9px;
+    letter-spacing: 2px;
+    color: #4a4a40;
+    margin: -12px 0 20px;
+    font-style: italic;
+  }
+  #v5 .confirm-btn {
+    width: 100%;
+    background: transparent;
+    border: 1px solid rgba(52,92,100,0.6);
+    color: #7bbdc8;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 200;
+    font-size: 10px;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    padding: 17px;
+    cursor: pointer;
+    transition: all 0.35s;
+    margin-top: 10px;
+    position: relative;
+    overflow: hidden;
+  }
+  #v5 .confirm-btn::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(52,92,100,0.2);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s ease;
+  }
+  #v5 .confirm-btn:hover::after { transform: scaleX(1); }
+  #v5 .confirm-btn:hover { border-color: #7bbdc8; }
+  #v5 .v5-right {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+  #v5 .v5-right img.hero-r {
+    width: 100%;
+    height: 62%;
+    object-fit: cover;
+    filter: brightness(0.55) saturate(0.5);
+  }
+  #v5 .v5-gallery {
+    display: flex;
+    gap: 2px;
+    flex: 1;
+    background: #0a0a0a;
+  }
+  #v5 .v5-gallery img {
+    flex: 1;
+    object-fit: cover;
+    filter: brightness(0.45) saturate(0.4);
+    transition: flex 0.5s, filter 0.35s;
+  }
+  #v5 .v5-gallery img:hover {
+    flex: 2.5;
+    filter: brightness(0.75) saturate(0.8);
+  }
+  #v5 .venue-label {
+    position: absolute;
+    bottom: 32px;
+    right: -5px;
+    writing-mode: vertical-rl;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 100;
+    font-size: 9px;
+    letter-spacing: 3px;
+    color: rgba(118,118,104,0.5);
+    text-transform: uppercase;
+  }
+
+  /* shared success style */
+  .success-msg {
+    display: none;
+    text-align: center;
+    padding: 20px 0 8px;
+    color: #345c64;
+    font-style: italic;
+  }
+</style>
+</head>
+<body>
+
+<!-- SWITCHER -->
+<div class="switcher">
+  <span>Variation:</span>
+  <button class="active" onclick="show(1)">1 · Luxury Dark</button>
+  <button onclick="show(2)">2 · Art Deco</button>
+  <button onclick="show(3)">3 · Brutalist</button>
+  <button onclick="show(4)">4 · Soft Organic</button>
+  <button onclick="show(5)">5 · Dark Magazine</button>
+</div>
+
+<div style="height:44px"></div>
+
+<!-- ===================== VARIATION 1 ===================== -->
+<div id="v1" class="variation active">
+  <div class="hero">
+    <div class="left">
+      <div class="overline">NACPA · Beverly Hills · 2026</div>
+      <h1>NACPA<br><em>Reception</em></h1>
+      <div class="date-line">April 14, 2026 &nbsp;·&nbsp; 6:00 – 8:00 PM PST &nbsp;·&nbsp; Wally's Beverly Hills</div>
+
+      <div class="form-group">
+        <label class="form-label">Member Name</label>
+        <input type="text" placeholder="Your full name" id="v1-name">
+      </div>
+      <div style="margin-bottom:8px">
+        <label class="form-label" style="margin-bottom:12px; display:block;">Guest Attendees <span style="color:#3a3a35;">(2 maximum)</span></label>
+        <div class="guest-row">
+          <div class="form-group">
+            <label class="form-label">Guest 1</label>
+            <input type="text" placeholder="Guest name">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Guest 2</label>
+            <input type="text" placeholder="Guest name">
+          </div>
+        </div>
+      </div>
+      <button class="submit-btn" onclick="handleRSVP('v1-name','v1-success')"><span>Confirm Attendance</span></button>
+      <div id="v1-success" class="success-msg" style="color:#7bbdc8; font-family:'Josefin Sans',sans-serif; font-size:11px; letter-spacing:3px; margin-top:16px;">Thank you — we'll see you April 14.</div>
+    </div>
+    <div class="right">
+      <img src="https://nacpa.net/wp-content/uploads/2026/03/wallys-storefront-v2.jpg" alt="Wally's Beverly Hills wine bar interior">
+      <div class="overlay"></div>
+      <div class="venue-tag">Wally's Beverly Hills</div>
+    </div>
+  </div>
+  <div class="gallery-bar">
+    <div class="gallery-strip">
+      <img src="https://nacpa.net/wp-content/uploads/2026/03/walls-tables.jpg" alt="wine cellar">
+      <img src="https://nacpa.net/wp-content/uploads/2026/03/wallys-wall.jpg" alt="restaurant interior">
+      <img src="https://nacpa.net/wp-content/uploads/2026/03/wallys-storefront-v2.jpg" alt="wine glasses">
+      <img src="https://nacpa.net/wp-content/uploads/2026/03/walls-tables.jpg" alt="cocktail event">
+    </div>
+  </div>
+</div>
+
+<!-- ===================== VARIATION 2 ===================== -->
+<div id="v2" class="variation">
+  <div class="deco-top"></div>
+  <div class="inner">
+    <div class="deco-header">
+      <div class="tag">You Are Cordially Invited</div>
+      <h1>NACPA Reception</h1>
+      <div class="date">April 14, 2026 &nbsp;·&nbsp; 6:00–8:00 PM &nbsp;·&nbsp; Wally's Beverly Hills</div>
+    </div>
+
+    <div class="split">
+      <div class="form-side">
+        <div class="deco-corner tl"></div>
+        <div class="deco-corner br"></div>
+        <h2>RSVP</h2>
+        <label class="fl">Member Name</label>
+        <input type="text" placeholder="Full name" id="v2-name">
+        <div class="guest-section">
+          <span class="gs-title">Member Guests &nbsp;(2 Maximum)</span>
+          <label class="fl">Guest One</label>
+          <input type="text" placeholder="Name">
+          <label class="fl">Guest Two</label>
+          <input type="text" placeholder="Name">
+        </div>
+        <button class="rsvp-btn" onclick="handleRSVP('v2-name','v2-success')">Confirm Attendance</button>
+        <div id="v2-success" class="success-msg" style="font-family:'Crimson Pro',serif; font-size:18px; color:#345c64; margin-top:12px;">Thank you. We look forward to seeing you.</div>
+      </div>
+
+      <div class="img-side">
+        <img class="main-img" src="https://nacpa.net/wp-content/uploads/2026/03/wallys-storefront-v2.jpg" alt="Wally's interior">
+        <div class="gallery-mini">
+          <img src="https://nacpa.net/wp-content/uploads/2026/03/walls-tables.jpg" alt="wine cellar">
+          <img src="https://nacpa.net/wp-content/uploads/2026/03/wallys-wall.jpg" alt="dining">
+          <img src="https://nacpa.net/wp-content/uploads/2026/03/wallys-wall.jpg" alt="wine">
+          <img src="https://nacpa.net/wp-content/uploads/2026/03/walls-tables.jpg" alt="event">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== VARIATION 3 ===================== -->
+<div id="v3" class="variation">
+  <div class="top-bar">
+    <span>NACPA · 2026</span>
+    <span>APR 14 · 6:00 PM PST · WALLY'S BEVERLY HILLS</span>
+    <span>MEMBER RSVP</span>
+  </div>
+  <div class="body-wrap">
+    <div class="form-col">
+      <div class="nacpa-stamp">NACPA</div>
+      <h1>RECEP<br><span class="h1-accent">TION</span></h1>
+      <div class="info-block">
+        <div><strong>Date</strong>April 14, 2026</div>
+        <div><strong>Time</strong>6:00–8:00 PM PST</div>
+        <div><strong>Venue</strong>Wally's<br>Beverly Hills</div>
+      </div>
+
+      <label class="field-label">// Member Name</label>
+      <input type="text" placeholder="FULL NAME" id="v3-name">
+
+      <label class="field-label" style="margin-top:28px">// Member Guests (max 2)</label>
+      <div class="guest-pair">
+        <div class="fg">
+          <input type="text" placeholder="GUEST 01">
+        </div>
+        <div class="fg">
+          <input type="text" placeholder="GUEST 02">
+        </div>
+      </div>
+
+      <button class="send-btn" onclick="handleRSVP('v3-name','v3-success')">SEND RSVP</button>
+      <div id="v3-success" class="success-msg" style="font-family:'Space Mono',monospace; font-size:11px; color:#345c64; text-align:left; margin-top:14px;">// RSVP CONFIRMED. SEE YOU APR 14.</div>
+    </div>
+    <div class="img-col">
+      <img class="hero-img" src="https://nacpa.net/wp-content/uploads/2026/03/wallys-storefront-v2.jpg" alt="Wally's Beverly Hills">
+      <div class="grid-4">
+        <img src="https://nacpa.net/wp-content/uploads/2026/03/walls-tables.jpg" alt="">
+        <img src="https://nacpa.net/wp-content/uploads/2026/03/wallys-wall.jpg" alt="">
+        <img src="https://nacpa.net/wp-content/uploads/2026/03/wallys-wall.jpg" alt="">
+        <img src="https://nacpa.net/wp-content/uploads/2026/03/walls-tables.jpg" alt="">
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== VARIATION 4 ===================== -->
+<div id="v4" class="variation">
+  <div class="page">
+    <div class="left">
+      <div class="pill">NACPA Reception 2026</div>
+      <h1>An <em>Evening</em><br>at Wally's</h1>
+      <div class="date-row">
+        <div class="line"></div>
+        <span>April 14 · 6–8 PM · Beverly Hills</span>
+        <div class="line"></div>
+      </div>
+
+      <div class="form-card">
+        <div>
+          <label class="fc-label">Member Name</label>
+          <input type="text" placeholder="Your full name" id="v4-name">
+        </div>
+        <div>
+          <label class="fc-label">Member Guests</label>
+          <div class="guest-note">Up to 2 guests permitted</div>
+          <div class="guest-cols">
+            <div class="gc">
+              <input type="text" placeholder="Guest 1 name">
+            </div>
+            <div class="gc">
+              <input type="text" placeholder="Guest 2 name">
+            </div>
+          </div>
+        </div>
+        <button class="rsvp" onclick="handleRSVP('v4-name','v4-success')">Confirm Attendance</button>
+        <div id="v4-success" class="success-msg" style="font-family:'DM Serif Display',serif; font-size:18px; color:#345c64;">We're delighted — see you April 14.</div>
+      </div>
+    </div>
+
+    <div class="right">
+      <img class="main" src="https://nacpa.net/wp-content/uploads/2026/03/wallys-storefront-v2.jpg" alt="Wally's Beverly Hills">
+      <div class="thumb-row">
+        <img src="https://nacpa.net/wp-content/uploads/2026/03/walls-tables.jpg" alt="">
+        <img src="https://nacpa.net/wp-content/uploads/2026/03/wallys-wall.jpg" alt="">
+        <img src="https://nacpa.net/wp-content/uploads/2026/03/wallys-wall.jpg" alt="">
+        <img src="https://nacpa.net/wp-content/uploads/2026/03/walls-tables.jpg" alt="">
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== VARIATION 5 ===================== -->
+<div id="v5" class="variation">
+  <div class="v5-wrap">
+    <div class="v5-left">
+      <div class="eyebrow">NACPA · Reception · 2026</div>
+      <h1>An <em>Evening</em><br>in Beverly Hills</h1>
+      <div class="meta">April 14, 2026 &nbsp;·&nbsp; 6:00 to 8:00 PM PST &nbsp;·&nbsp; Wally's</div>
+
+      <div>
+        <label class="v5-label">Member Name</label>
+        <input type="text" placeholder="Full name" id="v5-name">
+
+        <label class="v5-label">Member Guests <span style="color:#3a3a35; font-size:8px">(2 max)</span></label>
+        <div class="g-pair">
+          <div class="gf">
+            <input type="text" placeholder="Guest one">
+          </div>
+          <div class="gf">
+            <input type="text" placeholder="Guest two">
+          </div>
+        </div>
+
+        <button class="confirm-btn" onclick="handleRSVP('v5-name','v5-success')">Confirm Attendance</button>
+        <div id="v5-success" class="success-msg" style="font-family:'Libre Baskerville',serif; font-size:15px; color:#7bbdc8; font-style:italic; margin-top:14px;">Thank you — we'll see you April 14.</div>
+      </div>
+
+      <div class="venue-label">Wally's Beverly Hills</div>
+    </div>
+
+    <div class="v5-right">
+      <img class="hero-r" src="https://nacpa.net/wp-content/uploads/2026/03/wallys-storefront-v2.jpg" alt="Wally's Beverly Hills">
+      <div class="v5-gallery">
+        <img src="https://nacpa.net/wp-content/uploads/2026/03/walls-tables.jpg" alt="">
+        <img src="https://nacpa.net/wp-content/uploads/2026/03/wallys-wall.jpg" alt="">
+        <img src="https://nacpa.net/wp-content/uploads/2026/03/wallys-wall.jpg" alt="">
+        <img src="https://nacpa.net/wp-content/uploads/2026/03/walls-tables.jpg" alt="">
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  function show(n) {
+    document.querySelectorAll('.variation').forEach(v => v.classList.remove('active'));
+    document.querySelectorAll('.switcher button').forEach(b => b.classList.remove('active'));
+    document.getElementById('v' + n).classList.add('active');
+    document.querySelectorAll('.switcher button')[n - 1].classList.add('active');
+  }
+
+  function handleRSVP(nameId, successId) {
+    const name = document.getElementById(nameId);
+    if (!name || !name.value.trim()) {
+      name.style.borderColor = '#c0392b';
+      name.placeholder = 'Please enter your name';
+      setTimeout(() => { name.style.borderColor = ''; name.placeholder = name.id.includes('v3') ? 'FULL NAME' : 'Your full name'; }, 2000);
+      return;
+    }
+    const btn = event.target;
+    btn.disabled = true;
+    btn.style.opacity = '0.5';
+    const success = document.getElementById(successId);
+    success.style.display = 'block';
+    success.style.animation = 'fadeIn 0.5s ease';
+  }
+</script>
+<style>
+@keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+</style>
+</body>
+</html>
